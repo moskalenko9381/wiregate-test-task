@@ -1,0 +1,93 @@
+@import "./text.scss";
+
+
+@mixin input-common-style {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  background-color: white;
+  border: 2px solid #B1B1B1;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  &:hover {
+    border: 2px solid #5B5B5B;
+  }
+}
+
+input#checkbox {
+  @include input-common-style;
+  border-radius: 4px;
+
+  &:checked {
+    position: relative;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      transform: rotate(-45deg);
+      position: absolute;
+      width: 11px;
+      height: 7px;
+      left: calc(50% - 11px / 2);
+      bottom: 8.5px;
+      border-radius: 10%;
+      border-left: 2px solid #62C991;
+      border-bottom: 2px solid #62C991;
+    }
+  }
+}
+
+input.radio {
+  @include input-common-style;
+
+  display: inline-block;
+  padding: 6px;
+  background-clip: content-box;
+  border-radius: 50%;
+
+  &:checked {
+    background-color: #62C991;
+  }
+}
+
+button.submit-button {
+  border-radius: 8px;
+  width: 100%;
+  height: 56px;
+  border: 0;
+  //padding: 16px 42px 16px 42px;
+  margin-top: 42px;
+  margin-bottom: 42px;
+  gap: 8px;
+  background-color: #62C991;
+  text-align: center;
+  color: white;
+  //styleName: Medium 16;
+  font-family: Inter, serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  letter-spacing: 0;
+
+  &:disabled {
+    background-color: #B7B8B7;
+  }
+
+  &:hover {
+    background-color: #39BF76;
+  }
+}
+
+div.container {
+  form {
+    display: flex;
+    gap: 20px;
+
+    label.radio-inline {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}

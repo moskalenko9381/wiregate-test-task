@@ -1,0 +1,73 @@
+span#work-time {
+  font-family: Seravek, serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-align: left;
+}
+
+span#hr {
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  text-align: left;
+  color: #B1B1B1;
+}
+
+span#thanks {
+  font-family: Seravek, serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+@mixin inter-text($weight) {
+  font-family: Inter, serif;
+  font-size: 16px;
+  font-weight: $weight;
+  line-height: 19px;
+  letter-spacing: 0;
+}
+
+span#email {
+  @include inter-text(400);
+  color: #5B5B5B;
+}
+
+label#mobile-label {
+  font-family: "Inter", serif;
+  color: #252525;
+  font-size: 14px;
+  line-height: 17.5px;
+  font-weight: 400;
+}
+
+span.company, div.container {
+  font-family: Inter, serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+input#mobile {
+  border-radius: 8px;
+  padding: 1em;
+  border: 1.5px solid #B1B1B1;
+  &:hover, &:focus {
+    border-color: #5B5B5B;
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+    border-color: #5B5B5B;
+  }
+  &::placeholder {
+    color: #B1B1B1;
+  }
+}
