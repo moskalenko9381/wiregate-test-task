@@ -1,18 +1,63 @@
-import React from "react";;
+import React, {useReducer} from "react";
 import "./style/button.scss";
 import Footer from "@/app/signup/components/Footer";
 import {InputWithValidation} from "@/app/signup/components/InputWithValidation";
+import "./style/block.scss";
+import {InputPassword} from "@/app/signup/components/InputPassword";
+import {GetServerSideProps} from "next";
+import {InputNamesContainer} from "@/app/signup/components/InputNamesContainer";
 
-export default function Page() {
+interface ISignUpProps {
+    password: string;
+    name: string;
+    lastName: string;
+    company: boolean;
+    address?: string;
+}
+
+enum ActionKind {
+    NAME = 'NAME',
+    LAST_NAME = 'LAST_NAME',
+    PASSWORD = 'PASSWORD'
+}
+
+// An interface for our actions
+interface Action {
+    type: ActionKind;
+    payload: string;
+}
+
+// An interface for our state
+
+// Our reducer function that uses a switch statement to handle our actions
+function formReducer(state: ISignUpProps, action: Action) {
+    const { type, payload } = action;
+    switch (type) {
+        case ActionKind.NAME:
+            return {
+                ...state,
+                name: payload
+            };
+        case ActionKind.LAST_NAME:
+            return {
+                ...state,
+                lastName: payload
+            };
+        case ActionKind.PASSWORD:
+            return {
+                ...state,
+                password: payload
+            };
+        default:
+            return state;
+    }
+}
+export default async function Page() {
+    const data: ISignUpProps = await getData();
+    //const [state, dispatch] = useReducer(formReducer, {...data});
     return (
         <>
-        <div style={{display: "flex",
-        position: "relative",
-            justifyContent: "center", margin: "auto",
-            maxWidth: "30em", minWidth: "15em",
-            flexDirection: "column", alignSelf: "center",
-            justifySelf: "center",
-            gap: "2.5em"}} >
+        <div className={"main-block"} >
             <div style={{display: "flex", justifyContent: "center",
             flexDirection: "column", textAlign: "center", gap: "0.6em"}} >
                 <span style={{fontFamily: "Seravek", fontWeight: 500,
@@ -22,15 +67,18 @@ export default function Page() {
             </div>
 
             <div style={{gap: "20px", display: "flex", flexDirection: "column"}}>
-            <div style={{display: "flex", gap: "1.3em",
-                flexWrap: "wrap"}}>
-                <InputWithValidation label="Your name" type="text" default={"Sergey"} />
-                <InputWithValidation label="Your last name" type="text" default={"Your last name"}/>
-            </div>
+            {/*<div style={{display: "flex", gap: "1.3em",*/}
+            {/*    flexWrap: "wrap"}}>*/}
+            {/*    <InputWithValidation label="Your name" type="text" default={"Sergey"} />*/}
+            {/*    <InputWithValidation label="Your last name" type="text" default={"Your last name"}/>*/}
+            {/*</div>*/}
+
+                <InputNamesContainer name={data.name} lastName={data.lastName} />
 
             <InputWithValidation label={"Mobile Number"} default={"+7(999)999-99-99"}/>
 
-            <div className="container" style={{display: "flex", gap: "1.3em", flexDirection: "column"}}>
+            <div className={"container"} style={{
+                display: "flex", gap: "1.3em", flexDirection: "column"}}>
                 <span className="company"> Are you a company? </span>
                 <form>
                     <label htmlFor="yes" className="radio-inline">
@@ -46,23 +94,35 @@ export default function Page() {
 
             <InputWithValidation label={"Address"} default={"Enter your address company"} />
 
-            <InputWithValidation label={"Password"} type="password" default={"Create password"} />
+                <InputPassword initial={data.password}/>
 
-            <form>
                 <div className="checkbox-wrapper">
                     <input
                         type="checkbox"
                         id="checkbox" />
-                    <label htmlFor="checkbox">
-                        I agree with all Terms and Conditions and  Privacy Policies.
+                    <label htmlFor="checkbox" id="checkbox-label">
+                        I agree with all
+                        <span> Terms and Conditions </span>
+                        and
+                        <span> Privacy Policies. </span>
                     </label>
                 </div>
                     <button type="submit" className="submit-button">Next</button>
-            </form>
 
             </div>
         </div>
             <Footer />
             </>
     )
+}
+
+
+async function getData(): Promise<ISignUpProps> {
+    return {
+        password: "12345",
+        company: true,
+        name: "Lisa",
+        lastName: "Test",
+        address: "Lenina street"
+    }
 }

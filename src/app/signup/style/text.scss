@@ -27,7 +27,7 @@ span#thanks {
 }
 
 @mixin inter-text($weight) {
-  font-family: Inter, serif;
+  font-family: Inter, sans-serif;
   font-size: 16px;
   font-weight: $weight;
   line-height: 19px;
@@ -40,25 +40,46 @@ span#email {
 }
 
 label#mobile-label {
-  font-family: "Inter", serif;
+  font-family: Inter, sans-serif;
   color: #252525;
   font-size: 14px;
   line-height: 17.5px;
   font-weight: 400;
 }
+label#checkbox-label {
+  padding-left: 10px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0;
+  text-align: left;
+ * {
+    font-weight: 500;
+    line-height: 18px;
+    color: #62C991;
+  }
+}
 
 span.company, div.container {
-  font-family: Inter, serif;
+  font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
   letter-spacing: 0;
 }
 
-input#mobile {
+input.mobile {
   border-radius: 8px;
   padding: 1em;
   border: 1.5px solid #B1B1B1;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0;
+  text-align: left;
+
   &:hover, &:focus {
     border-color: #5B5B5B;
     outline: none;
@@ -69,5 +90,14 @@ input#mobile {
   }
   &::placeholder {
     color: #B1B1B1;
+    //styleName: Regular;
   }
+}
+
+img.span-icon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 0;
+  margin-right: 10px;
 }
