@@ -101,3 +101,18 @@ img.span-icon {
   right: 0;
   margin-right: 10px;
 }
+
+p.error-message {
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  letter-spacing: 0;
+  text-align: left;
+  color: #CF4545;
+  padding-top: 0.5em;
+}
+
+input.error-message {
+  caret-color: #CF4545;
+}

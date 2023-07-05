@@ -1,4 +1,4 @@
-import React, {useReducer} from "react";
+import React from "react";
 import "./style/button.scss";
 import Footer from "@/app/signup/components/Footer";
 import {InputWithValidation} from "@/app/signup/components/InputWithValidation";
@@ -6,11 +6,15 @@ import "./style/block.scss";
 import {InputPassword} from "@/app/signup/components/InputPassword";
 import {GetServerSideProps} from "next";
 import {InputNamesContainer} from "@/app/signup/components/InputNamesContainer";
+import {InputPhone} from "@/app/signup/components/InputPhone";
+import {InputWithErrorMessage} from "@/app/signup/components/InputWithErrorMessage";
+import {configDotenv} from "dotenv";
 
 interface ISignUpProps {
     password: string;
     name: string;
     lastName: string;
+    phone: string;
     company: boolean;
     address?: string;
 }
@@ -52,6 +56,16 @@ function formReducer(state: ISignUpProps, action: Action) {
             return state;
     }
 }
+
+import * as dotenv from "dotenv";
+import dynamic from 'next/dynamic'
+dotenv.config({ path: __dirname+'/.env' });
+console.log("ssr value", process.env.NEXT_SSR_ENABLED)
+
+const App = dynamic(() => import('../components/App'), {
+    ssr: process.env.NEXT_PUBLIC_SSR_ENABLED
+})
+
 export default async function Page() {
     const data: ISignUpProps = await getData();
     //const [state, dispatch] = useReducer(formReducer, {...data});
@@ -67,15 +81,9 @@ export default async function Page() {
             </div>
 
             <div style={{gap: "20px", display: "flex", flexDirection: "column"}}>
-            {/*<div style={{display: "flex", gap: "1.3em",*/}
-            {/*    flexWrap: "wrap"}}>*/}
-            {/*    <InputWithValidation label="Your name" type="text" default={"Sergey"} />*/}
-            {/*    <InputWithValidation label="Your last name" type="text" default={"Your last name"}/>*/}
-            {/*</div>*/}
-
                 <InputNamesContainer name={data.name} lastName={data.lastName} />
 
-            <InputWithValidation label={"Mobile Number"} default={"+7(999)999-99-99"}/>
+            <InputPhone initial={data.phone} />
 
             <div className={"container"} style={{
                 display: "flex", gap: "1.3em", flexDirection: "column"}}>
@@ -93,7 +101,6 @@ export default async function Page() {
             </div>
 
             <InputWithValidation label={"Address"} default={"Enter your address company"} />
-
                 <InputPassword initial={data.password}/>
 
                 <div className="checkbox-wrapper">
@@ -123,6 +130,7 @@ async function getData(): Promise<ISignUpProps> {
         company: true,
         name: "Lisa",
         lastName: "Test",
-        address: "Lenina street"
+        address: "Lenina street",
+        phone: ""
     }
 }
