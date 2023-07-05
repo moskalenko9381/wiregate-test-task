@@ -15,10 +15,12 @@ export const InputNamesContainer = (props: IInputNamesProps) => {
     const errorMessage = "Please enter only letters";
 
     const onChangeName = (e: React.ChangeEvent) => {
+        // @ts-ignore
         setName(e.target.value.trim());
     }
 
     const onChangeLastName = (e: React.ChangeEvent) => {
+        // @ts-ignore
         setLastName(e.target.value.trim());
     }
 

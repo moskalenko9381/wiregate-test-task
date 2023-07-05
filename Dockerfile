@@ -7,7 +7,7 @@ ARG PROJECT_DIR
 ARG NODE_VERSION
 
 WORKDIR $PROJECT_DIR
-COPY package.json ./
+COPY package.json package-lock.json ./
 
 RUN npm install --production
 

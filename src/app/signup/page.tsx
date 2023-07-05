@@ -57,15 +57,6 @@ function formReducer(state: ISignUpProps, action: Action) {
     }
 }
 
-import * as dotenv from "dotenv";
-import dynamic from 'next/dynamic'
-dotenv.config({ path: __dirname+'/.env' });
-console.log("ssr value", process.env.NEXT_SSR_ENABLED)
-
-const App = dynamic(() => import('../components/App'), {
-    ssr: process.env.NEXT_PUBLIC_SSR_ENABLED
-})
-
 export default async function Page() {
     const data: ISignUpProps = await getData();
     //const [state, dispatch] = useReducer(formReducer, {...data});
