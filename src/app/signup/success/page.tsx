@@ -3,8 +3,8 @@ import "../../style/block.scss";
 
 export default function Page() {
     return (
-        <div className="success-page flex-column-block">
-            <Image src="/logo.svg" alt="logo" width={350} height={177} />
+        <div className="success-page">
+            <Image src={"/logo.svg"} alt={"logo"} width={350} height={177} />
             <span id="thanks"> Thank you for registering! </span>
         </div>
     );

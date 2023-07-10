@@ -48,6 +48,8 @@ div.footer {
 }
 
 div.success-page {
+  display: flex;
+  flex-direction: column;
   position: relative;
   align-items: center;
   gap: 20px;
