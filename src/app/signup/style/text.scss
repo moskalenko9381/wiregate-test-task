@@ -39,25 +39,37 @@ span#email {
   color: #5B5B5B;
 }
 
-label#mobile-label {
+label.input-label {
   font-family: Inter, sans-serif;
   color: #252525;
   font-size: 14px;
   line-height: 17.5px;
   font-weight: 400;
 }
-label#checkbox-label {
-  padding-left: 10px;
-  font-family: Inter, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 17px;
-  letter-spacing: 0;
-  text-align: left;
- * {
-    font-weight: 500;
-    line-height: 18px;
-    color: #62C991;
+
+div.checkbox-wrapper {
+  display: flex;
+
+  div {
+    padding-left: 10px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+
+    label#checkbox-label {
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 17px;
+      letter-spacing: 0;
+      text-align: left;
+
+      * {
+        font-weight: 500;
+        line-height: 18px;
+        color: #62C991;
+      }
+    }
   }
 }
 
@@ -67,30 +79,45 @@ span.company, div.container {
   font-weight: 400;
   line-height: 18px;
   letter-spacing: 0;
+  color: #252525;
 }
 
-input.mobile {
-  border-radius: 8px;
-  padding: 1em;
-  border: 1.5px solid #B1B1B1;
-  font-family: Inter, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 19px;
-  letter-spacing: 0;
-  text-align: left;
+div.input-valid-wrapper {
+  gap: 0.4em;
+  flex-grow: 1;
+  position: relative;
+  min-width: 200px;
 
-  &:hover, &:focus {
-    border-color: #5B5B5B;
-    outline: none;
-  }
-  &:focus {
-    outline: none;
-    border-color: #5B5B5B;
-  }
-  &::placeholder {
-    color: #B1B1B1;
-    //styleName: Regular;
+  input.input-valid {
+    border-radius: 8px;
+    padding: 1em;
+    border: 1.5px solid #B1B1B1;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    height: 0.8em;
+    line-height: 1em;
+    letter-spacing: 0;
+    text-align: left;
+    color: #252525;
+    :not(.error-message) {
+      color: #5B5B5B;
+    }
+
+    &:hover, &:focus {
+      border-color: #5B5B5B;
+      outline: none;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: #5B5B5B;
+    }
+
+    &::placeholder {
+      color: #B1B1B1;
+      //styleName: Regular;
+    }
   }
 }
 
@@ -115,4 +142,12 @@ p.error-message {
 
 input.error-message {
   caret-color: #CF4545;
+  color: #CF4545;
+}
+
+span.sign-up {
+  font-family: "Seravek", serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 39.26px;
 }

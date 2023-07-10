@@ -1,3 +1,8 @@
+@mixin side-padding {
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
 div.main-block {
   display: flex;
   position: relative;
@@ -8,6 +13,31 @@ div.main-block {
   align-self: center;
   justify-self: center;
   gap: 2.5em;
-  padding-left: 5%;
-  padding-right: 5%;
+  @include side-padding;
+
+  > div:first-child {
+    justify-content: center;
+    text-align: center;
+    gap: 0.6em;
+  }
+}
+
+div.flex-column-block {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+div.header {
+  display: flex;
+  align-items: center;
+  @include side-padding;
+  padding-top: 1.2em;
+  padding-bottom: 2em;
+  gap: 1em;
+}
+
+div.footer {
+  @include side-padding;
+  padding-bottom: 2.5em;
 }

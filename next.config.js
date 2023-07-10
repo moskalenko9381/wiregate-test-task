@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: "standalones"
-}
+    output: "standalones",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
