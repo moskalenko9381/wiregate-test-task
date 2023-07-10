@@ -1,5 +1,5 @@
 import React from "react";
-import "../../style/text.scss";
+import "../../../style/text.scss";
 
 export interface IInputProps {
     id?: string;

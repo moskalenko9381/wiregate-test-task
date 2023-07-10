@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { ISignUpProps } from "@/app/type";
+import {SUCCESS_PATH} from "@/constants";
 
 interface ISubmitProps {
     disabled: boolean;
@@ -8,8 +9,9 @@ interface ISubmitProps {
 }
 
 export const SubmitButton = (props: ISubmitProps) => {
+
     return (
-        <Link href={"/signup/success"}>
+        <Link href={SUCCESS_PATH}>
             <button
                 type="submit"
                 disabled={props.disabled}

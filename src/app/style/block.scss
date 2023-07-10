@@ -35,9 +35,30 @@ div.header {
   padding-top: 1.2em;
   padding-bottom: 2em;
   gap: 1em;
+  > div {
+    text-align: center;
+    gap: 13px;
+    height: 100%;
+  }
 }
 
 div.footer {
   @include side-padding;
   padding-bottom: 2.5em;
+}
+
+div.success-page {
+  position: relative;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 5.3em;
+  padding-left: 0.8em;
+  margin: auto;
+}
+
+div.container-names {
+  display: flex;
+  gap: 1.3em;
+  flex-wrap: wrap;
+  position: relative;
 }

@@ -1,7 +1,8 @@
 "use client";
 import { InputWithValidation } from "@/app/signup/components/input/InputWithValidation";
 import React, { useMemo } from "react";
-import "../../style/text.scss";
+import "../../../style/text.scss";
+import Image from "next/image";
 
 interface IProps {
     onChange(e: string): void;
@@ -33,7 +34,7 @@ export const InputWithErrorMessage = (props: IProps) => {
                 default={defaultValue}
             >
                 {nameCorrect ? (
-                    <img className="span-icon" src={"/done.svg"} />
+                    <Image src="/done.svg" className="span-icon" alt="correct" width={24} height={24} />
                 ) : undefined}
             </InputWithValidation>
             {value && !nameCorrect ? (

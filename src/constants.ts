@@ -6,3 +6,5 @@ export const PHONE_REGEX =
 
 export const errorMessageLetters = "Please enter only letters";
 export const errorMessageLength = "Please enter at least 2 letters";
+
+export const SUCCESS_PATH = "/signup/success";

@@ -1,6 +1,6 @@
 import React from "react";
-import "../../style/text.scss";
-import "../../style/block.scss";
+import "../../../style/text.scss";
+import "../../../style/block.scss";
 
 const Footer = () => {
     return (

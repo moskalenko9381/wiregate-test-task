@@ -1,5 +1,5 @@
 import React from "react";
-import "../../style/text.scss";
+import "../../../style/text.scss";
 import { InputWithErrorMessage } from "@/app/signup/components/input/InputWithErrorMessage";
 import {
     errorMessageLength,
@@ -20,14 +20,7 @@ export const InputNamesContainer = (props: IInputNamesProps) => {
     const { name, lastName, onChangeName, onChangeLastName } = props;
 
     return (
-        <div
-            style={{
-                display: "flex",
-                gap: "1.3em",
-                flexWrap: "wrap",
-                position: "relative",
-            }}
-        >
+        <div className="container-names">
             <InputWithErrorMessage
                 pattern={NAME_REGEX}
                 defaultValue="Your name"

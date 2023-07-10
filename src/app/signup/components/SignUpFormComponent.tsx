@@ -5,9 +5,9 @@ import { InputPhone } from "@/app/signup/components/input/InputPhone";
 import { InputWithValidation } from "@/app/signup/components/input/InputWithValidation";
 import { InputPassword } from "@/app/signup/components/input/InputPassword";
 import React, { useEffect, useReducer, useState } from "react";
-import "../style/text.scss";
-import "../style/block.scss";
-import "../style/button.scss";
+import "../../style/text.scss";
+import "../../style/block.scss";
+import "../../style/button.scss";
 import { signUpAction, signupReducer } from "@/app/signup/hooks/signupReducer";
 import { NAME_REGEX, PHONE_REGEX } from "@/constants";
 import { CompanyCheckbox } from "@/app/signup/components/checkbox/CompanyCheckbox";
@@ -45,8 +45,7 @@ export function SignUpFormComponent(data: ISignUpProps) {
             <div className="flex-column-block">
                 <span className="sign-up">Sign up </span>
                 <span style={{ color: "#5B5B5B" }}>
-                    {" "}
-                    Please provide your name and email{" "}
+                    Please provide your name and email
                 </span>
             </div>
 

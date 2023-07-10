@@ -1,7 +1,7 @@
 import React from "react";
-import "../../style/text.scss";
-import "../../style/block.scss";
-import "../../style/button.scss";
+import "../../../style/text.scss";
+import "../../../style/block.scss";
+import "../../../style/button.scss";
 
 interface ICompanyCheckboxProps {
     value: boolean;

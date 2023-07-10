@@ -1,7 +1,7 @@
 "use client";
 import { InputWithValidation } from "@/app/signup/components/input/InputWithValidation";
 import React, { useState } from "react";
-
+import Image from "next/image";
 interface IPasswordProps {
     password?: string;
 
@@ -33,11 +33,9 @@ export const InputPassword = (props: IPasswordProps) => {
             default={"Create password"}
         >
             {
-                <img
-                    className="span-icon"
-                    onClick={onVisibilityHandler}
-                    src={type === "password" ? "/no-eye.svg" : "/eye.svg"}
-                ></img>
+                <Image className="span-icon" src={type === "password" ? "/no-eye.svg" : "/eye.svg"}
+                    alt="password" onClick={onVisibilityHandler} 
+                    width={24} height={24} />
             }
         </InputWithValidation>
     );

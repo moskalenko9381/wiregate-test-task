@@ -21,15 +21,7 @@ export default function RootLayout({
                 />
             </head>
             <body className={inter.className}>
-                <div
-                    style={{
-                        minHeight: "100vh",
-                        background: "white",
-                        display: "flex",
-                        position: "relative",
-                        flexDirection: "column",
-                    }}
-                >
+                <div className="main-container">
                     <Header />
                     {children}
                 </div>
